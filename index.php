@@ -8,6 +8,10 @@
         <!--Bootstrap CSS-->
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <title>FLEX</title>
+        <link rel="shortcut icon" href="img/flex.png" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script>
+        <script src="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"></script>
     </head>
     <body>
         <header>
@@ -87,10 +91,58 @@
                 </div> 
             </nav>
         </header>
+        <main role="menu">
+            <div class="container">
+                <table id="DATA" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thread>
+                        <tr>
+                            <th>No</th>
+                            <th>S/N</th>
+                            <th>Description</th>
+                            <th>Family</th>
+                            <th>Location</th>
+                            <th>Line</th>
+                            <th>Status</th>
+                            <th>Engineer</th>
+                            <th>EAM</th>
+                            <th>Asset_Group_ID</th>
+                            <th>Asset_Group_Desc</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <?php
+                        include "koneksi.php";
+                        $employee = mysqli_query($koneksi, "select * from data");
+                        while($row = mysqli_fetch_array($employee))
+                        {
+                            echo "<tr>
+                            <td>".$row['No']."</td>
+                            <td>".$row['S/N']."</td>
+                            <td>".$row['Description']."</td>
+                            <td>".$row['Family']."</td>
+                            <td>".$row['Location']."</td>
+                            <td>".$row['Line']."</td>
+                            <td>".$row['Status']."</td>
+                            <td>".$row['Engineer']."</td>
+                            <td>".$row['EAM']."</td>
+                            <td>".$row['Asset_Group_ID']."</td>
+                            <td>".$row['Asset_Group_Desc']."</td>
+                            </tr>";
+                        }
+                        ?>
+                    <tbody>
+                </table>
+            </div>
+        </main>
     <!--Optional Javascript-->
     <!--jQuery first, then Popper, js, then Bootstrap JS-->
     <script src="./js/jquery-3.3.1.slim.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#DATA').DataTable();
+        } );
+    </script>
     </body>
 </html>
