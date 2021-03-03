@@ -94,6 +94,47 @@
             </nav>
         </header>
         <main role="menu">
+            <div class="container">
+                <table id="data" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thread>
+                        <tr>
+                            <th>No</th>
+                            <th>S/N</th>
+                            <th>Description</th>
+                            <th>Family</th>
+                            <th>Location</th>
+                            <th>Line</th>
+                            <th>Status</th>
+                            <th>Engineer</th>
+                            <th>EAM</th>
+                            <th>Asset_Group_ID</th>
+                            <th>Asset_Group_Desc</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <?php
+                        include "koneksi.php";
+                        $employee = mysqli_query($koneksi, "select * from data");
+                        while($row = mysqli_fetch_array($employee))
+                        {
+                            echo "<tr>
+                            <td>".$row['No']."</td>
+                            <td>".$row['S/N']."</td>
+                            <td>".$row['Description']."</td>
+                            <td>".$row['Family']."</td>
+                            <td>".$row['Location']."</td>
+                            <td>".$row['Line']."</td>
+                            <td>".$row['Status']."</td>
+                            <td>".$row['Engineer']."</td>
+                            <td>".$row['EAM']."</td>
+                            <td>".$row['Asset_Group_ID']."</td>
+                            <td>".$row['Asset_Group_Desc']."</td>
+                            </tr>";
+                        }
+                        ?>
+                    <tbody>
+                </table>
+            </div>
         </main>
     <script>
         $(document).ready(function() {
