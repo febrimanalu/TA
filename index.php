@@ -5,13 +5,17 @@
         <meta charset="utf-8">
         <meta name="=viewport" content="width=device-width, intial-scale=1, shrink-to-fit=no">
 
-        <!--Bootstrap CSS-->
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <!--CSS-->
         <title>FLEX</title>
         <link rel="shortcut icon" href="img/flex.png" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script>
-        <script src="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+
+        <!--Javascript-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
     </head>
     <body>
         <header>
@@ -93,7 +97,7 @@
         </header>
         <main role="menu">
             <div class="container">
-                <table id="DATA" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                <table id="data" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thread>
                         <tr>
                             <th>No</th>
@@ -134,14 +138,9 @@
                 </table>
             </div>
         </main>
-    <!--Optional Javascript-->
-    <!--jQuery first, then Popper, js, then Bootstrap JS-->
-    <script src="./js/jquery-3.3.1.slim.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#DATA').DataTable();
+            $('#data').DataTable();
         } );
     </script>
     </body>
