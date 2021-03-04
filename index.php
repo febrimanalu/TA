@@ -8,15 +8,13 @@
         <!--CSS-->
         <title>FLEX</title>
         <link rel="shortcut icon" href="img/flex.png" />
-        <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
 
-        <!--Javascript-->
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
-        <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <style>
+        .carousel-item {
+            height: 670px;
+        }
+        </style>
     </head>
     <body>
         <header>
@@ -24,7 +22,7 @@
                 <a class="navbar-brand">
                     <img src="img/flex1.png" height="40" />
                 </a>
-                <span class="navbar-brand position-absolute"><h2>Machine Health ICT</h2></span>
+                <span class="navbar-brand position-absolute"><h2>Machine Health</h2></span>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
@@ -94,11 +92,34 @@
             </nav>
         </header>
         <main role="menu">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/Keysight1.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Keysight2.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Keysight3.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        <!--Javascript-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         </main>
-    <script>
-        $(document).ready(function() {
-            $('#data').DataTable();
-        } );
-    </script>
     </body>
 </html>
