@@ -88,12 +88,11 @@
             </nav>
         </header>
         <main role="menu">
-        <br><br>
+        <br>
             <div class="container">
                 <table id="example" class="table table-striped table-bordered display nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>No</th>
                             <th>S/N</th>
                             <th>Description</th>
                             <th>Family</th>
@@ -109,21 +108,20 @@
                     <tbody>
                         <?php 
                             include 'koneksi.php';
-                            $data=mysqli_query($koneksi,"select * from data");
+                            $data = mysqli_query($koneksi,"select * from data");
                             while($row = mysqli_fetch_array($data))
                             {
                                 echo "<tr>
-                                <td>".$row['No']"</td>
-                                <td>".$row['S/N']"</td>
-                                <td>".$row['Description']"</td>
-                                <td>".$row['Family']"</td>
-                                <td>".$row['Location']"</td>
-                                <td>".$row['Line']"</td>
-                                <td>".$row['Status']"</td>
-                                <td>".$row['Engineer']"</td>
-                                <td>".$row['EAM']"</td>
-                                <td>".$row['Asset_Group_ID']"</td>
-                                <td>".$row['Asset_Group_Desc']"</td>
+                                <td>".$row['S/N']."</td>
+                                <td>".$row['Description']."</td>
+                                <td>".$row['Family']."</td>
+                                <td>".$row['Location']."</td>
+                                <td>".$row['Line']."</td>
+                                <td>".$row['Status']."</td>
+                                <td>".$row['Engineer']."</td>
+                                <td>".$row['EAM']."</td>
+                                <td>".$row['Asset_Group_ID']."</td>
+                                <td>".$row['Asset_Group_Desc']."</td>
                                 </tr>";
                             }
                         ?>
@@ -144,7 +142,11 @@
         $(document).ready(function() {
             $('#example').DataTable( {
                 dom: 'Bfrtip',
-                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                buttons: ['copy', 'csv', 'excel', 
+                {
+                    extend:'pdfHtml5',
+                    download:'open'
+                 }, 'print']
             } );
         } );
     </script>
