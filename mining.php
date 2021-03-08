@@ -88,6 +88,12 @@
             </nav>
         </header>
         <main role="menu">
+            <div class="container">
+            <form action="aksi.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" name="upload" value="Upload">
+            </form>
+            </div>
         </main>
     <!--Javascript-->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
