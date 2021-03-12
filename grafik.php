@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
     </head>
     <body>
-        <header>
+    <header>
             <nav class="navbar navbar-expand-sm navbar-dark mb-1 bg-primary justify-content-center align-items-start">
                 <a class="navbar-brand">
                     <img src="img/flex1.png" height="40" />
@@ -91,11 +91,45 @@
             </nav>
         </header>
         <main role="menu">
+        <br>
             <div class="container">
-            <form action="" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file">
-                <input type="submit" name="upload" value="Upload">
-            </form>
+                <table id="example" class="table table-striped table-bordered display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>S/N</th>
+                            <th>Description</th>
+                            <th>Family</th>
+                            <th>Location</th>
+                            <th>Line</th>
+                            <th>Status</th>
+                            <th>Engineer</th>
+                            <th>EAM</th>
+                            <th>Asset_Group_ID</th>
+                            <th>Asset_Group_Desc</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            include 'koneksi.php';
+                            $data = mysqli_query($koneksi,"select * from data");
+                            while($row = mysqli_fetch_array($data))
+                            {
+                                echo "<tr>
+                                <td>".$row['S/N']."</td>
+                                <td>".$row['Description']."</td>
+                                <td>".$row['Family']."</td>
+                                <td>".$row['Location']."</td>
+                                <td>".$row['Line']."</td>
+                                <td>".$row['Status']."</td>
+                                <td>".$row['Engineer']."</td>
+                                <td>".$row['EAM']."</td>
+                                <td>".$row['Asset_Group_ID']."</td>
+                                <td>".$row['Asset_Group_Desc']."</td>
+                                </tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </main>
     <!--Javascript-->
@@ -111,7 +145,11 @@
         $(document).ready(function() {
             $('#example').DataTable( {
                 dom: 'Bfrtip',
-                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                buttons: ['copy', 'csv', 'excel', 
+                {
+                    extend:'pdfHtml5',
+                    download:'open'
+                 }, 'print']
             } );
         } );
     </script>

@@ -8,27 +8,37 @@
         <!--CSS-->
         <title>FLEX</title>
         <link rel="shortcut icon" href="img/flex.png" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     </head>
+    <style>
+    .card {
+        width: 1100px;
+        height: 350px;
+        margin-top: 125px;
+        margin-left: 30px;
+        margin-right:30px;
+    }
+    </style>
     <body>
         <header>
             <nav class="navbar navbar-expand-sm navbar-dark mb-1 bg-primary justify-content-center align-items-start">
                 <a class="navbar-brand">
                     <img src="img/flex1.png" height="40" />
                 </a>
-                <span class="navbar-brand position-absolute"><h2>Machine Health ICT</h2></span>
+                <span class="navbar-brand position-absolute"><h2>Machine Health</h2></span>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
                             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="data.php">Data ICT</a>
+                            <a class="nav-link" href="data.php">Data Kerusakan Mesin</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="mining.php">Proses Mining</a>
+                            <a class="nav-link" href="grafik.php">Grafik</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="prediksi.php">Prediksi</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto text-light">
@@ -88,29 +98,15 @@
             </nav>
         </header>
         <main role="menu">
-            <div class="container">
-            <form action="aksi.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="file">
-                <input type="submit" name="upload" value="Upload">
-            </form>
-            </div>
+        
+        <!--Javascript-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+            $('.carousel').carousel({
+                interval: 2000
+            })
+        </script>
         </main>
-    <!--Javascript-->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable( {
-                dom: 'Bfrtip',
-                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-            } );
-        } );
-    </script>
     </body>
 </html>

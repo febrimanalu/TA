@@ -32,10 +32,13 @@
                             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="data.php">Data ICT</a>
+                            <a class="nav-link" href="data.php">Data Kerusakan Mesin</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="mining.php">Proses Mining</a>
+                            <a class="nav-link" href="grafik.php">Grafik</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="prediksi.php">Prediksi</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto text-light">
