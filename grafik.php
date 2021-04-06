@@ -8,12 +8,62 @@
         <!--CSS-->
         <title>FLEX</title>
         <link rel="shortcut icon" href="img/flex.png" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     </head>
+    <style>
+    .highcharts-figure, .highcharts-data-table table {
+        min-width: 310px; 
+        max-width: 800px;
+        margin: 1em auto;
+        }
+
+        #chart1 {
+        height: 400px;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+        }
+        .highcharts-data-table th {
+            font-weight: 600;
+        padding: 0.5em;
+        }
+        .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+        }
+        .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+        }
+        .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+        }
+        <?php
+            include "koneksi.php";
+            $sql = "SELECT Defect, COUNT(Defect) AS Total FROM grafik GROUP BY Defect";
+            $arr_label = array();
+            $arr_satu = array();
+            $query = $koneksi->query($sql);
+            while ($data = mysqli_fetch_array($query)) {
+                $arr_label = $data['Defect'];
+                $arr_satu = $data['Total'];
+            }
+            $label = join(",", $arr_label);
+            $satu = join(",", $arr_satu);	
+        ?>
+    </style>
     <body>
-    <header>
+        <header>
             <nav class="navbar navbar-expand-sm navbar-dark mb-1 bg-primary justify-content-center align-items-start">
                 <a class="navbar-brand">
                     <img src="img/flex1.png" height="40" />
@@ -91,67 +141,69 @@
             </nav>
         </header>
         <main role="menu">
-        <br>
-            <div class="container">
-                <table id="example" class="table table-striped table-bordered display nowrap" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>S/N</th>
-                            <th>Description</th>
-                            <th>Family</th>
-                            <th>Location</th>
-                            <th>Line</th>
-                            <th>Status</th>
-                            <th>Engineer</th>
-                            <th>EAM</th>
-                            <th>Asset_Group_ID</th>
-                            <th>Asset_Group_Desc</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                            include 'koneksi.php';
-                            $data = mysqli_query($koneksi,"select * from data");
-                            while($row = mysqli_fetch_array($data))
-                            {
-                                echo "<tr>
-                                <td>".$row['S/N']."</td>
-                                <td>".$row['Description']."</td>
-                                <td>".$row['Family']."</td>
-                                <td>".$row['Location']."</td>
-                                <td>".$row['Line']."</td>
-                                <td>".$row['Status']."</td>
-                                <td>".$row['Engineer']."</td>
-                                <td>".$row['EAM']."</td>
-                                <td>".$row['Asset_Group_ID']."</td>
-                                <td>".$row['Asset_Group_Desc']."</td>
-                                </tr>";
-                            }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
+            <figure class="highcharts-figure">
+                <div id="chart1"></div>
+            </figure>
+        
+        <!--Javascript-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
+        <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script>
+        // Create the chart
+        Highcharts.chart('chart1', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Grafik Data Defect'
+            },
+            accessibility: {
+                announceNewData: {
+                enabled: true
+                }
+            },
+            xAxis: {
+                type: 'category',
+                title: {
+                    text: 'Nama Defect'
+                }
+            },
+            yAxis: {
+                title: {
+                text: 'Total persen Defect'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f}%'
+                }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+
+            series: [{
+            type: 'column',
+            zIndex: 2,
+            data: [<?= $satu ?>],
+            }]
+        }
+        </script>
         </main>
-    <!--Javascript-->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable( {
-                dom: 'Bfrtip',
-                buttons: ['copy', 'csv', 'excel', 
-                {
-                    extend:'pdfHtml5',
-                    download:'open'
-                 }, 'print']
-            } );
-        } );
-    </script>
     </body>
 </html>
