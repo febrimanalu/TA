@@ -8,6 +8,6 @@ if(mysqli_connect_error())
 {
     echo "Koneksi database gagal";
 } else {
-    echo "Koneksi berhasil";
+    echo "";
 }
 ?>
