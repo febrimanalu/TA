@@ -119,7 +119,7 @@ $empat = implode(",", $arr_empat);
       type: 'column'
     },
     title: {
-      text: 'Grafik Data Defect'
+      text: 'Grafik Defect'
     },
     accessibility: {
       announceNewData: {
@@ -158,7 +158,7 @@ $empat = implode(",", $arr_empat);
       type: 'column'
     },
     title: {
-      text: 'Grafik Data Malfunction_Symptom'
+      text: 'Grafik Malfunction_Symptom'
     },
     accessibility: {
       announceNewData: {
@@ -197,7 +197,7 @@ $empat = implode(",", $arr_empat);
       type: 'column'
     },
     title: {
-      text: 'Grafik Data RelatedPart'
+      text: 'Grafik RelatedPart'
     },
     accessibility: {
       announceNewData: {
@@ -236,7 +236,7 @@ $empat = implode(",", $arr_empat);
       type: 'column'
     },
     title: {
-      text: 'Grafik Data Actiontype'
+      text: 'Grafik Actiontype'
     },
     accessibility: {
       announceNewData: {
