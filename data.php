@@ -22,7 +22,7 @@ include("HeaderFooter/header.php");
             </thead>
             <tbody>
             <?php
-                $data = mysqli_query($koneksi, "SELECT * FROM grafik");
+                $data = mysqli_query($koneksi, "SELECT * FROM data");
                 while($d = mysqli_fetch_array($data)){
                     ?>
                     <tr>
