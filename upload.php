@@ -1,35 +1,47 @@
 <?php
 include("koneksi.php");
 include("HeaderFooter/header.php");
-?>
 
-<?php
-if (isset($_POST['upload'])) {
-    require ('spreadsheet-reader-master/php-excel-reader/excel_reader2.php');
-    require('spreadsheet-reader-master/SpreadsheetReader.php');
-}
+//panggil excel reader
+include_once('file/excel_reader2.php');
+
 //upload file excel
-$target = "Upload/".basename($_FILES['file']['name']);
-move_uploaded_file($_FILES['file']['tmp_file'], $target);
+$target = basename($_FILES['data_mesin']['name']);
+move_uploaded_file($_FILES['data_mesin']['tmp_name'], $target);
 
 //beri permisi agar file excel dapat dibaca
-chmod($_FILES['file']['name'],0777);
+chmod($_FILES['data_mesin']['name'],0777);
 
 //mengambil isi file excel
-$data = new SpreadsheetReader($target);
+$data = new Spreadsheet_Excel_Reader ($_FILES['data_mesin']['name'], false);
 
-foreach ($data as $Key => $Row)
+//hitung jumlah baris
+$jumlah_baris = $data->rowcount($sheet_index=0);
+
+$success = 0;
+for($i=2; $i<=$jumlah_baris; $i++)
+{
+  $def = $data->val($i, 1);
+  $malf = $data->val($i, 2);
+  $rel = $data->val($i, 3);
+  $act = $data->val($i, 4);
+
+  if($def != "" && $malf != "")
   {
-   // import data excel mulai baris ke-2 (karena ada header pada baris 1)
-   if ($Key < 1) continue;   
-   $query=mysql_query("INSERT INTO data(Defect,Malfunction_Symptom,RelatedPart,Actiontype) VALUES ('".$Row[0]."', '".$Row[1]."','".$Row[2]."','".$Row[3]."')");
-  }
-  if ($query) {
-    echo "Import data berhasil";
-   }else{
-    echo mysql_error();
-   }
+    $enc_password = md5($password);
 
+    mysqli_query($connect, "INSERT INTO data VALUES ('', '$def', '$malf', '$rel', '$act')");
+
+    $success++;
+  }
+}
 // hapus kembali file .xls yang di upload tadi
-unlink($_FILES['file']['name']);
+unlink($_FILES['data_mesin']['name']);
+
+if($success > 0)
+{
+  header("location:data.php?upload=success");
+} else {
+  header("location:data.php?upload=gagal");
+}
 ?>  
