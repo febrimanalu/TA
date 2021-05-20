@@ -17,16 +17,13 @@ include("HeaderFooter/header.php");
                                 <option value="">--Select--</option>
                                 <option value="">Analog Intermitent</option>
                                 <option value="">Corrupted</option>
-                                <option value="">Digital Intermitent</option>
                                 <option value="">Fail Tesjet</option>
                                 <option value="">No Booting</option>
-                                <option value="">Often Red Alarm</option>
                                 <option value="">Overvoltage</option>
                                 <option value="">PC Problem</option>
-                                <option value="">Power Supply Problem</option>
-                                <option value="">RTS Error</option>
+                                <option value="">Power Supply Problem</option>>
                                 <option value="">Short Card</option>
-                                <option value="">Vaccum Issue</option>
+                                <option value="">Vaccum Problem</option>
                             </select>
                         <td>
                     </tr>
@@ -41,17 +38,10 @@ include("HeaderFooter/header.php");
                                 <option value="">No Booting</option>
                                 <option value="">Overvoltage</option>
                                 <option value="">PC Blue Screen</option>
-                                <option value="">PC Error</option>
-                                <option value="">Power Nodes</option>
-                                <option value="">Power Supply Problem/option>
+                                <option value="">Power Supply Problem</option>
                                 <option value="">PreShort Fail</option>
-                                <option value="">Problem I/O</option>
-                                <option value="">Problem Tester</option>
                                 <option value="">Problem Vaccum</option>
-                                <option value="">Red Alarm</option>
-                                <option value="">Tester No Booting</option>
                                 <option value="">Tester Short</option>
-                                <option value="">Testhead No Boot</option>
                             </select>
                         </td>                        
                     </tr>
@@ -62,16 +52,11 @@ include("HeaderFooter/header.php");
                             <select name="part">
                                 <option value="">--Select--</option>
                                 <option value="">AIR PRESSURE</option>
-                                <option value="">BNC HUB</option>
                                 <option value="">CARD</option>
                                 <option value="">DIAGNOSTIC</option>
-                                <option value="">FALSE CALL</option>
                                 <option value="">MPU</option>
                                 <option value="">OTHER</option>
                                 <option value="">PC CONTROLLER</option>
-                                <option value="">REBOOT</option>
-                                <option value="">SELENOID</option>
-                                <option value="">SOFTWARE</option>
                             </select>
                         </td>
                     </tr>
