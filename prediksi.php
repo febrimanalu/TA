@@ -5,7 +5,7 @@ include("HeaderFooter/header.php");
 
 <main role="menu">
     <div class="container">
-        <form action="" method="POST">
+        <form action="aksi.php" method="POST">
             <table class="table" align="center">
                 <thad></thead>
                 <tbody>
@@ -15,15 +15,15 @@ include("HeaderFooter/header.php");
                         <td>
                              <select name="defect">
                                 <option value="">--Select--</option>
-                                <option value="Analog">Analog Intermitent</option>
+                                <option value="Analog Intermitent">Analog Intermitent</option>
                                 <option value="Corrupted">Corrupted</option>
-                                <option value="Fail">Fail Tesjet</option>
-                                <option value="Booting">No Booting</option>
+                                <option value="Fail Tesjet">Fail Tesjet</option>
+                                <option value="No Booting">No Booting</option>
                                 <option value="Overvoltage">Overvoltage</option>
-                                <option value="Problem">PC Problem</option>
-                                <option value="Power">Power Supply Problem</option>>
-                                <option value="Short">Short Card</option>
-                                <option value="Vaccum">Vaccum Problem</option>
+                                <option value="PC Problem">PC Problem</option>
+                                <option value="Power Supply Problem">Power Supply Problem</option>>
+                                <option value="Short Card">Short Card</option>
+                                <option value="Vaccum Problem">Vaccum Problem</option>
                             </select>
                         <td>
                     </tr>
@@ -33,15 +33,15 @@ include("HeaderFooter/header.php");
                         <td>
                             <select name="malf">
                                 <option value="">--Select--</option>
-                                <option value="BT-Basic">BT-Basic Error</option>
+                                <option value="BT-Basic Error">BT-Basic Error</option>
                                 <option value="Ground">Ground</option>
-                                <option value="Booting">No Booting</option>
+                                <option value="No Booting">No Booting</option>
                                 <option value="Overvoltage">Overvoltage</option>
-                                <option value="Blue">PC Blue Screen</option>
-                                <option value="Power">Power Supply Problem</option>
-                                <option value="PreShort">PreShort Fail</option>
-                                <option value="Problem">Problem Vaccum</option>
-                                <option value="Tester">Tester Short</option>
+                                <option value="PC Blue Screen">PC Blue Screen</option>
+                                <option value="Power Supply Problem">Power Supply Problem</option>
+                                <option value="PreShort Fail">PreShort Fail</option>
+                                <option value="Problem Vaccum">Problem Vaccum</option>
+                                <option value="Tester Short">Tester Short</option>
                             </select>
                         </td>                        
                     </tr>
@@ -51,12 +51,12 @@ include("HeaderFooter/header.php");
                         <td>
                             <select name="part">
                                 <option value="">--Select--</option>
-                                <option value="AIR">AIR PRESSURE</option>
+                                <option value="AIR PRESSURE">AIR PRESSURE</option>
                                 <option value="CARD">CARD</option>
                                 <option value="DIAGNOSTIC">DIAGNOSTIC</option>
                                 <option value="MPU">MPU</option>
                                 <option value="OTHER">OTHER</option>
-                                <option value="PC">PC CONTROLLER</option>
+                                <option value="PC CONTROLLER">PC CONTROLLER</option>
                             </select>
                         </td>
                     </tr>
@@ -64,14 +64,14 @@ include("HeaderFooter/header.php");
                         <td></td>
                         <td></td>
                         <td>
-                            <input type="button" name="insert" value="Prediksi" action="aksi.php" /><br><br>
+                            <button type="submit" name="submit" onclick="return confirm('Apakah anda ingin memulai prediksi?')" class="btn btn-primary"><i class="fa fa-save"></i>Prediksi</button>
                         </td><br>
                     </tr>
                     <tr>
                         <td>Prediksi Actiontype :</td>
                         <td></td>
                         <td>
-                            <textarea rows="7" cols="70" name="type"></textarea>
+                            <textarea rows="7" cols="70" name="actiontype" autocomplete="off"></textarea>
                         </td>
                     </tr>
                 </tbody>

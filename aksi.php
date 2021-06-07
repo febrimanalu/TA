@@ -1,73 +1,54 @@
 <?php
-$a = Defect;
-$b = Malfunction_Symptom;
-$c = RelatedPart;
-
-if $a ="Analog Intermitent"{
-    if $b ="PreShort Fail"{
-        if $c ="CARD"{
-            echo "Repair";
-        }
-    }
-} elseif $a ="Corrupted"{
-    if $b ="BT-Basic Error"{
-        if $c ="PC CONTROLLER"{
-            echo "Reboot";
-        }
-    }elseif $b ="No Booting"{
-        if $c ="PC CONTROLLER"{
-            echo "Restore";
-        }
-    }           
-} elseif $a ="Fail Tesjet"{
-    if $b ="Ground"{
-        if $c ="CARD"{
-            echo "Repair";
-        }
-    }
-} elseif $a ="No Booting"{
-    if $b ="No Booting"{
-        if $c ="PC CONTROLLER"{
-            echo "Restore";
-        }
-    } elseif $b ="Tester Short"{
-        if $c ="OTHER"{
-            echo "Repair";
-        }
-    }
-} elseif $a ="Overvoltage"{
-    if $b ="Overvoltage"{
-        if $c ="MPU"{
-            echo "Reboot";
-        }
-    } elseif $b ="Power Supply Problem"{
-        if $c ="OTHER"{
-            echo "Repair";
-        }
-    }
-} elseif $a ="PC Problem"{
-    if $b ="PC Blue Screen"{
-        if $c ="OTHER"{
-            echo "Repair";
-        } elseif $c ="PC CONTROLLER"{
-            echo "Restore";
-        }
-    }
-} elseif $a ="Short Card"{
-    if $b ="Tester Short"{
-        if $c ="DIAGNOSTIC"{
-            echo "Repair";
-        } elseif $c ="CARD"{
-            echo "Repair";
-        }
-    }
-} else $a ="Vaccum Issue"{
-    if $b ="Problem Vaccum"{
-        if $c ="OTHER"{
-            echo "False Call";
-        } elseif $c ="AIR PRESSURE"{
-            echo "Repair";
-        }
+if(isset($_POST['submit'])){
+    $def =($_POST['def']);
+    $sym =($_POST['sym']);
+    $rel =($_POST['rel']);
+    $pred = "";
+echo "$def";
+echo "$sym";
+echo "$rel";
+    if(($def == "Analog Intermitent") && ($sym == "PreShort Fail") && ($rel == "CARD")){
+        $pred == "Repair";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Corrupted") && ($sym == "BT-Basic Error") && ($rel == "PC CONTROLLER")){
+        $pred == "Reboot";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Corrupted") && ($sym == "No Booting") && ($rel == "PC CONTROLLER")){
+        $pred == "Restore";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Fail Tesjet") && ($sym == "Ground") && ($rel == "CARD")){
+        $pred == "Repair";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "No Booting") && ($sym == "No Booting") && ($rel == "PC CONTROLLER")){
+        $pred == "Restore";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "No Booting") && ($sym == "Tester Short") && ($rel == "OTHER")){
+        $pred == "Repair";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Overvoltage") && ($sym == "Overvoltage") && ($rel == "MPU")){
+        $pred == "Reboot";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Overvoltage") && ($sym == "Power Supply Problem") && ($rel == "OTHER")){
+        $pred == "Repair";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "PC Problem") && ($sym == "PC Blue Screen") && ($rel == "PC CONTROLLER")){
+        $pred == "Restore";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "PC Problem") && ($sym == "PC Blue Screen") && ($rel == "OTHER")){
+        $pred == "Repair";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Short Card") && ($sym == "Tester Short") && ($rel == "DIAGNOSTIC")){
+        $pred == "Repair";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Short Card") && ($sym == "Tester Short") && ($rel == "CARD")){
+        $pred == "Repair";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Vaccum Issue") && ($sym == "Problem Vaccum") && ($rel == "OTHER")){
+        $pred == "False Call";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
+    } else if(($def == "Vaccum Issue") && ($sym == "Problem Vaccum") && ($rel == "AIR PRESSURE")){
+        $pred == "Repair";
+        header("location: localhost/TA/prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
     }
 }
 ?>
