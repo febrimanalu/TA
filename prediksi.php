@@ -13,17 +13,17 @@ include("HeaderFooter/header.php");
                         <td>Defect :</td>
                         <td>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</td>
                         <td>
-                             <select name="def">
+                             <select class="form-control" name="def" autocomplete="on" required>
                                 <option value="">--Select--</option>
-                                <option value="Analog Intermitent">Analog Intermitent</option>
-                                <option value="Corrupted">Corrupted</option>
-                                <option value="Fail Tesjet">Fail Tesjet</option>
-                                <option value="No Booting">No Booting</option>
-                                <option value="Overvoltage">Overvoltage</option>
-                                <option value="PC Problem">PC Problem</option>
-                                <option value="Power Supply Problem">Power Supply Problem</option>>
-                                <option value="Short Card">Short Card</option>
-                                <option value="Vaccum Problem">Vaccum Problem</option>
+                                <option value="Analog Intermitent"> Analog Intermitent</option>
+                                <option value="Corrupted"> Corrupted</option>
+                                <option value="Fail Tesjet"> Fail Tesjet</option>
+                                <option value="No Booting"> No Booting</option>
+                                <option value="Overvoltage"> Overvoltage</option>
+                                <option value="PC Problem"> PC Problem</option>
+                                <option value="Power Supply Problem"> Power Supply Problem</option>
+                                <option value="Short Card"> Short Card</option>
+                                <option value="Vaccum Problem"> Vaccum Problem"</option>
                             </select>
                         <td>
                     </tr>
@@ -31,17 +31,17 @@ include("HeaderFooter/header.php");
                         <td>Malfunction Symptom :</td>
                         <td></td>
                         <td>
-                            <select name="sym">
+                            <select class="form-control" name="sym" autocomplete="off" required>
                                 <option value="">--Select--</option>
-                                <option value="BT-Basic Error">BT-Basic Error</option>
-                                <option value="Ground">Ground</option>
-                                <option value="No Booting">No Booting</option>
-                                <option value="Overvoltage">Overvoltage</option>
-                                <option value="PC Blue Screen">PC Blue Screen</option>
-                                <option value="Power Supply Problem">Power Supply Problem</option>
-                                <option value="PreShort Fail">PreShort Fail</option>
-                                <option value="Problem Vaccum">Problem Vaccum</option>
-                                <option value="Tester Short">Tester Short</option>
+                                <option value="BT-Basic Error"> BT-Basic Error</option>
+                                <option value="Ground"> Ground</option>
+                                <option value="No Booting"> No Booting</option>
+                                <option value="Overvoltage"> Overvoltage</option>
+                                <option value="PC Blue Screen"> PC Blue Screen</option>
+                                <option value="Power Supply Problem"> Power Supply Problem</option>
+                                <option value="PreShort Fail"> PreShort Fail</option>
+                                <option value="Problem Vaccum"> Problem Vaccum</option>
+                                <option value="Tester Short"> Tester Short</option>
                             </select>
                         </td>                        
                     </tr>
@@ -49,7 +49,7 @@ include("HeaderFooter/header.php");
                         <td>Related Part :</td>
                         <td></td>
                         <td>
-                            <select name="rel">
+                            <select class="form-control" name="rel" autocomplete="off" required>
                                 <option value="">--Select--</option>
                                 <option value="AIR PRESSURE">AIR PRESSURE</option>
                                 <option value="CARD">CARD</option>
