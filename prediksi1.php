@@ -76,7 +76,7 @@ $pred = $_GET['pred'];
                         <td>Prediksi Actiontype :</td>
                         <td></td>
                         <td>
-                            <textarea rows="7" cols="70" name="actiontype" autocomplete="off" value="<?php echo $pred;?>"></textarea>
+                            <input type="text" class="form-control" name="pred" autocomplete="off" value="<?php echo $pred;?>">
                         </td>
                     </tr>
                 </tbody>

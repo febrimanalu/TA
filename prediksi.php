@@ -13,7 +13,7 @@ include("HeaderFooter/header.php");
                         <td>Defect :</td>
                         <td>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</td>
                         <td>
-                             <select name="defect">
+                             <select name="def">
                                 <option value="">--Select--</option>
                                 <option value="Analog Intermitent">Analog Intermitent</option>
                                 <option value="Corrupted">Corrupted</option>
@@ -31,7 +31,7 @@ include("HeaderFooter/header.php");
                         <td>Malfunction Symptom :</td>
                         <td></td>
                         <td>
-                            <select name="malf">
+                            <select name="sym">
                                 <option value="">--Select--</option>
                                 <option value="BT-Basic Error">BT-Basic Error</option>
                                 <option value="Ground">Ground</option>
@@ -49,7 +49,7 @@ include("HeaderFooter/header.php");
                         <td>Related Part :</td>
                         <td></td>
                         <td>
-                            <select name="part">
+                            <select name="rel">
                                 <option value="">--Select--</option>
                                 <option value="AIR PRESSURE">AIR PRESSURE</option>
                                 <option value="CARD">CARD</option>
@@ -71,7 +71,7 @@ include("HeaderFooter/header.php");
                         <td>Prediksi Actiontype :</td>
                         <td></td>
                         <td>
-                            <textarea rows="7" cols="70" name="actiontype" autocomplete="off"></textarea>
+                            <input type="text" class="form-control" name="pred" autocomplete="off">
                         </td>
                     </tr>
                 </tbody>
