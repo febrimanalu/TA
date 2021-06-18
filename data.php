@@ -3,34 +3,51 @@ include("koneksi.php");
 include("HeaderFooter/header.php");
 ?>
 
-<main role="menu">
+<div id="wrap">
+    <br>
     <div class="container">
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <div class="wrap text-center">
+        <form action="import.php" method="post" name="upload_excel" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" class="input-large">
+            <button type="submit" id="submit" name="Import" class="btn btn-primary button-loading" data-loading-text="Loading...">Upload</button>
+        </form>
+        </div>   
+        <br>
+        <table id="example" class="table table-striped table-bordered" style="width:100%">  
             <thead>
                 <tr>
-                    <th>Defect</th>
+                    <th>ReqID</th>
                     <th>Malfunction Symptom</th>
-                    <th>Related Part</th>
+                    <th>PIC</th>
+                    <th>Create_at</th>
+                    <th>CloseDate</th>
+                    <th>Defect</th>
                     <th>Actiontype</th>
+                    <th>RelatedPart</th>  
                 </tr>
             </thead>
             <tbody>
-            <?php
-                $data = mysqli_query($koneksi, "SELECT * FROM grafik");
-                while($d = mysqli_fetch_array($data)){
-                    ?>
-                    <tr>
-                        <th><h6><?php echo $d['Defect']; ?></h6></th>
-                        <th><h6><?php echo $d['Malfunction_Symptom']; ?></h6></th>
-                        <th><h6><?php echo $d['RelatedPart']; ?></h6></th>
-                        <th><h6><?php echo $d['Actiontype']; ?></h6></th>
-                    </tr>
-                    <?php
+                <?php
+                    $data = mysqli_query($koneksi, "SELECT * FROM mesin");
+                    while($d = mysqli_fetch_array($data)){
+                ?>
+                <tr>
+                    <td><?php echo $d['ReqID']; ?></td>
+                    <td><?php echo $d['Malfunction Symptom']; ?></td>
+                    <td><?php echo $d['PIC']; ?></td>
+                    <td><?php echo $d['Create_at']; ?></td>
+                    <td><?php echo $d['CloseDate']; ?></td>
+                    <td><?php echo $d['Defect']; ?></td>
+                    <td><?php echo $d['Actiontype']; ?></td>
+                    <td><?php echo $d['RelatedPart']; ?></td>
+                </tr>
+                <?php
                 }
-            ?>
+                ?>
             </tbody>
         </table>
     </div>
+
 </main>
 
 <!--Javascript-->
