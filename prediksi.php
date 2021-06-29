@@ -21,9 +21,8 @@ include("HeaderFooter/header.php");
                                 <option value="No Booting"> No Booting</option>
                                 <option value="Overvoltage"> Overvoltage</option>
                                 <option value="PC Problem"> PC Problem</option>
-                                <option value="Power Supply Problem"> Power Supply Problem</option>
                                 <option value="Short Card"> Short Card</option>
-                                <option value="Vaccum Problem"> Vaccum Problem"</option>
+                                <option value="Vaccum Issue"> Vaccum Issue</option>
                             </select>
                         <td>
                     </tr>

@@ -26,28 +26,27 @@ include("HeaderFooter/header.php");
                     <th>RelatedPart</th>  
                 </tr>
             </thead>
-            <tbody>
-                <?php
-                    $data = mysqli_query($koneksi, "SELECT * FROM mesin");
-                    while($d = mysqli_fetch_array($data)){
-                ?>
-                <tr>
-                    <td><?php echo $d['ReqID']; ?></td>
-                    <td><?php echo $d['Malfunction Symptom']; ?></td>
-                    <td><?php echo $d['PIC']; ?></td>
-                    <td><?php echo $d['Create_at']; ?></td>
-                    <td><?php echo $d['CloseDate']; ?></td>
-                    <td><?php echo $d['Defect']; ?></td>
-                    <td><?php echo $d['Actiontype']; ?></td>
-                    <td><?php echo $d['RelatedPart']; ?></td>
-                </tr>
-                <?php
-                }
-                ?>
-            </tbody>
+            <?php
+                $data = "SELECT * FROM mesin";
+                $result = mysqli_query($koneksi, $data);
+                while($d = mysqli_fetch_array($result))
+                {
+            ?>
+            <tr>
+                <td><?php echo $d['ReqID']; ?></td>
+                <td><?php echo $d['Malfunction Symptom']; ?></td>
+                <td><?php echo $d['PIC']; ?></td>
+                <td><?php echo $d['Create_at']; ?></td>
+                <td><?php echo $d['CloseDate']; ?></td>
+                <td><?php echo $d['Defect']; ?></td>
+                <td><?php echo $d['Actiontype']; ?></td>
+                <td><?php echo $d['RelatedPart']; ?></td>
+            </tr>
+            <?php
+            }
+            ?>
         </table>
     </div>
-
 </main>
 
 <!--Javascript-->

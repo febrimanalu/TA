@@ -26,9 +26,8 @@ $pred = $_GET['pred'];
                                 <option value="No Booting"<?php echo ($def == 'No Booting') ? 'selected' : ''; ?>> No Booting</option>
                                 <option value="Overvoltage"<?php echo ($def == 'Overvoltage') ? 'selected' : ''; ?>> Overvoltage</option>
                                 <option value="PC Problem"<?php echo ($def == 'PC Problem') ? 'selected' : ''; ?>> PC Problem</option>
-                                <option value="Power Supply Problem"<?php echo ($def == 'Power Supply Problem') ? 'selected' : ''; ?>> Power Supply Problem</option>
                                 <option value="Short Card"<?php echo ($def == 'Short Card') ? 'selected' : ''; ?>> Short Card</option>
-                                <option value="Vaccum Problem"<?php echo ($def == 'Vaccum Problem"') ? 'selected' : ''; ?>> Vaccum Problem"</option>
+                                <option value="Vaccum Issue"<?php echo ($def == 'Vaccum Issue') ? 'selected' : ''; ?>> Vaccum Issue</option>
                             </select>
                         <td>
                     </tr>

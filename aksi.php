@@ -4,9 +4,7 @@ if(isset($_POST['submit'])){
     $sym =($_POST['sym']);
     $rel =($_POST['rel']);
     $pred = "";
-//echo "$def";
-//echo "$sym";
-//echo "$rel";
+
     if(($def = "Analog Intermitent") && ($sym = "PreShort Fail") && ($rel = "CARD")){
         $pred = "Repair";
         header("location: prediksi1.php?def=$def&sym=$sym&rel=$rel&pred=$pred");
