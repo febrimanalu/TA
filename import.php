@@ -13,12 +13,12 @@ include("HeaderFooter/header.php");
 	            //we are using mysql_query function. it returns a resource on true else False on error
 	            $result = mysqli_query($koneksi, $sql);
 				    if(! $result ){
-					    echo "<script type=\"text/javascript\">alert(\"CSV File has been successfully Imported.\");window.location = \"data.php\"</script>";
+					    echo "<script type=\"text/javascript\">alert(\"Invalid File:Please Upload CSV File.\");window.location = \"data.php\"</script>";
                     }
 	        }
 	        fclose($file);
 	        //throws a message if data successfully imported to mysql database from excel file
-	        echo "<script type=\"text/javascript\">alert(\"Invalid File:Please Upload CSV File.\");window.location = \"data.php\"</script>";
+	        echo "<script type=\"text/javascript\">alert(\"CSV File has been successfully Imported.\");window.location = \"data.php\"</script>";
 	        
 			//close of connection
 			mysqli_close($koneksi); 
