@@ -17,7 +17,7 @@ include("HeaderFooter/header.php");
             <thead>
                 <tr>
                     <th>ReqID</th>
-                    <th>Malfunction Symptom</th>
+                    <th>Malfunction_Symptom</th>
                     <th>PIC</th>
                     <th>Create_at</th>
                     <th>CloseDate</th>
@@ -34,7 +34,7 @@ include("HeaderFooter/header.php");
             ?>
             <tr>
                 <td><?php echo $d['ReqID']; ?></td>
-                <td><?php echo $d['Malfunction Symptom']; ?></td>
+                <td><?php echo $d['Malfunction_Symptom']; ?></td>
                 <td><?php echo $d['PIC']; ?></td>
                 <td><?php echo $d['Create_at']; ?></td>
                 <td><?php echo $d['CloseDate']; ?></td>
